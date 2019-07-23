@@ -192,3 +192,62 @@ Completed 200 OK in 180ms (Views: 155.5ms | ActiveRecord: 6.3ms)
 
 
   [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT books.* FROM books[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."title" = $1[0m  [["title", "The Force"]]
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."title" = $1[0m  [["title", "The Force"]]
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."title" = $1 ORDER BY "books"."id" ASC LIMIT $2[0m  [["title", "The Force"], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."title" = $1 LIMIT $2[0m  [["title", "The Force"], ["LIMIT", 1]]
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."title" = $1 LIMIT $2[0m  [["title", "The Force"], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."title" = $1 LIMIT $2[0m  [["title", "The Force"], ["LIMIT", 1]]
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."title" = $1 LIMIT $2[0m  [["title", "The Force"], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."country" = $1 LIMIT $2[0m  [["country", "Tatooine"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Luke"], ["country", "Tatooine"], ["created_at", 2019-07-23 14:59:33 UTC], ["updated_at", 2019-07-23 14:59:33 UTC]]
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "authors" ("name", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Luke 2"], ["country", "Tatooine"], ["created_at", 2019-07-23 14:59:45 UTC], ["updated_at", 2019-07-23 14:59:45 UTC]]
+  [1m[35m (7.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."country" = $1 LIMIT $2[0m  [["country", "Tatooine"], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."country" = $1 LIMIT $2[0m  [["country", "Tatooine"], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."country" = $1[0m  [["country", "Tatooine"]]
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."name" = $1 LIMIT $2[0m  [["name", "Leia"], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."name" = $1 LIMIT $2[0m  [["name", "Leia"], ["LIMIT", 1]]
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."author_id" = $1[0m  [["author_id", 3]]
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."name" = $1 LIMIT $2[0m  [["name", "Luke"], ["LIMIT", 1]]
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."author_id" = $1[0m  [["author_id", 2]]
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."name" = $1 LIMIT $2[0m  [["name", "Vador"], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."name" = $1 LIMIT $2[0m  [["name", "Vader"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT SUM("books"."sales") FROM "books" WHERE "books"."author_id" = $1[0m  [["author_id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT SUM("books"."sales") FROM "books" WHERE "books"."author_id" = $1[0m  [["author_id", 3]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT SUM("books"."sales") FROM "books" WHERE "books"."author_id" = $1[0m  [["author_id", 2]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT AVG("books"."sales") FROM "books"[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT AVG("books"."sales") FROM "books"[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT MAX("books"."sales") FROM "books"[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY sales DESC[0m
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" ORDER BY sales DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  "books".* FROM "books" ORDER BY sales ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" ORDER BY sales DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" ORDER BY sales DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGenre Load (0.9ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "books" ON "genres"."id" = "books"."genre_id" WHERE "books"."author_id" = $1[0m  [["author_id", 1]]
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGenre Load (0.9ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "books" ON "genres"."id" = "books"."genre_id" WHERE "books"."author_id" = $1[0m  [["author_id", 1]]
+  [1m[36mGenre Load (0.6ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "genres"."name" FROM "genres"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "authors"."name" FROM "authors"[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "books"."title" FROM "books"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "books"."title" FROM "books" WHERE "books"."author_id" = $1[0m  [["author_id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "authors"."id" FROM "authors"[0m
+Started GET "/books" for 127.0.0.1 at 2019-07-23 17:50:20 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN (2, 1)[0m
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres" WHERE "genres"."id" IN (2, 3)[0m
+  Rendered books/index.html.erb within layouts/application (35.8ms)
+Completed 200 OK in 194ms (Views: 180.4ms | ActiveRecord: 5.6ms)
+
+
